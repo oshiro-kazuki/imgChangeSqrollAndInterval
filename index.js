@@ -3,36 +3,42 @@
 {
   //画像の初期設定
   const img = document.querySelector('img');
-  const images = ["./facebook.logo.png", "./instagram.logo.png"];
-  const wheelImage =["./aquacase.jpg", "./drink.jpg"];
+  const kanpai = ["./kan0.PNG", "./kan1.PNG"];
+  const yashi = ["./ya0.PNG", "./ya1.PNG"];
   let index = 0;
-  img.src = images[index];
+  img.src = kanpai[index];
 
   //スクロールでの画像切り替え
-  window.addEventListener('mousewheel', () => {
-    wheelChange();
+  const downY = 300;
+  const upY = downY * -1;
+  const sqrollControl = 100;
+  console.log(upY);
+  window.addEventListener('wheel', e => {
+    const sqroll = sqrollControl * e.deltaY;
+    console.log(sqroll);
+    if(
+      sqroll > downY ||
+      sqroll < upY
+      ) {
+      changeYashi();
+    }
   });
 
-  function wheelChange() {
-    if (index === images.length - 1){
-      index = 0;
-    } else {
-      index++;
-    }
-
-    img.src = wheelImage[index];
+  function changeYashi() {
+    index === (yashi.length - 1) ? index = 0 : index++;
+    img.src = yashi[index];
   }
 
   //時間での画像切り替え
-  function changeImage() {
-    if (index === images.length - 1){
+  function changeKanpai() {
+    if (index === kanpai.length - 1){
       index = 0;
     } else {
       index++;
     }
 
-    img.src = images[index];
+    img.src = kanpai[index];
   }
 
-  setInterval(changeImage, 1000);
+  setInterval(changeKanpai, 1000);
 }
