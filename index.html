@@ -7,24 +7,43 @@
   <style>
     html, body {
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      width: 100%;
+      height: 2000px;
+      background-color: rgb(224, 224, 207);
     }
 
-    #root {
+    #wrapper{
+      position: relative;
+    }
+
+    #wheel {
+      position: fixed;
+      top: 30px;
+      left: 30px;
       box-sizing: border-box;
       height: 200px;
       width: 200px;
-      /* padding: 40px; */
-      background-color: cornsilk;
+    }
+
+    #count {
+      position: fixed;
+      top: 30px;
+      left: 260px;
+      box-sizing: border-box;
+      height: 200px;
+      width: 200px;
     }
   </style>
 </head>
 <body>
-  <div id="root">
-    <img width="200" height="200">
-  </div>
-  
-  <script src="index.js"></script>
-</body>
-</html>
+  <div id="wrapper">
+    <div id="wheel">
+      <img width="200" height="200">
+    </div>
 
+    <div id="count">
+      <img width="200" height="200">
+    </div>
+
+  </div>
